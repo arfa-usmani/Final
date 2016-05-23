@@ -33,5 +33,5 @@ def home(request):
 
 def list(request):
 	sign_ups = SignUp.objects.all()
-	context = {"users":sign_ups}
+	context = {"users":sign_ups.order_by('first_name')}
 	return render(request, "list.html", context)
